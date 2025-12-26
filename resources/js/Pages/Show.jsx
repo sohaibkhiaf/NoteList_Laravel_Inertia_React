@@ -1,11 +1,14 @@
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
 import {useRoute} from "../../../vendor/tightenco/ziggy";
 
 function Show({note}) {
 
+    const {auth} = usePage().props;
     const route = useRoute();
     const {post} = useForm();
+
+    console.log(note)
 
     function submit(e) {
         e.preventDefault();
@@ -23,7 +26,8 @@ function Show({note}) {
                     <p className="show-note-body">&nbsp;&nbsp;&nbsp;{note.body}</p>
                     <i  className="show-note-date">{new Date(note.created_at).toLocaleString()}</i>
 
-                    <div className="show-button-container">
+                    { (auth.user && auth.user.id === note.user_id) ?
+                    (<div className="show-button-container">
                         <form onSubmit={submit}>
                             <button className="show-delete-button">Delete</button>
                         </form>
@@ -32,7 +36,10 @@ function Show({note}) {
                             href={route('notes.edit', note)}>
                                 Edit
                         </Link>
-                    </div>
+                    </div>)
+                    : (<></>)
+                    }
+
                 </div>
             </div>
         </>

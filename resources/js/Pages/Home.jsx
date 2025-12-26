@@ -9,6 +9,9 @@ function Home({notes}) {
 
     // hooks declaration
     const {flash } = usePage().props;
+
+    console.log(usePage().props)
+
     const [warningMessage, setWarningMessage] = useState(flash.warning);
     const [normalMessage, setNormalMessage] = useState(flash.normal);
 

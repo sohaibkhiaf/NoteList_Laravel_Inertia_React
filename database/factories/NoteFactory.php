@@ -19,6 +19,7 @@ class NoteFactory extends Factory
         return [
             "title" => fake()->sentence(7),
             "body" => fake()->text(500),
+            "user_id" => fake()->randomElement([1,2]),
         ];
     }
 }
