@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PublicationRequest;
 use App\Http\Resources\PublicationResource;
 use App\Models\Publication;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Inertia\Inertia;
 
 class PublicationController extends Controller
 {
-    use AuthorizesRequests;
 
     /**
      * Display a listing of the resource.
