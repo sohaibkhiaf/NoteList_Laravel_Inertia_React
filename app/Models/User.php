@@ -45,7 +45,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function notes() {
-        return $this->hasMany('notes');
+    public function publications() {
+        return $this->hasMany('publications');
     }
 }

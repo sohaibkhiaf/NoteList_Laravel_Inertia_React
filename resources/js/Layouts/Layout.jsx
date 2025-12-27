@@ -6,7 +6,7 @@ function Layout ({ header, children}){
     return (
         <>
             <Head>
-                <link rel="icon" type="image/png" href="note-icon.png" />
+                <link rel="icon" type="image/png" href="publication-icon.png" />
             </Head>
             <Header selected={header ?? "undefined"}/>
 

@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Note;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Publication;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -28,6 +28,6 @@ class DatabaseSeeder extends Seeder
             "password"=> bcrypt("password"),
         ]);
 
-        Note::factory(30)->create();
+        Publication::factory(30)->create();
     }
 }

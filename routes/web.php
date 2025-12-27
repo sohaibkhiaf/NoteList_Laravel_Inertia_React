@@ -1,17 +1,17 @@
 <?php
 
-use App\Http\Controllers\NoteController;
+use App\Http\Controllers\PublicationController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [NoteController::class,'index'])->name('notes');
-Route::get('/notes/{note}/show', [NoteController::class,'show'])->name('notes.show');
+Route::get('/', [PublicationController::class,'index'])->name('publications');
+Route::get('/publications/{publication}/show', [PublicationController::class,'show'])->name('publications.show');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/notes/{note}/edit', [NoteController::class,'edit'])->name('notes.edit');
-    Route::get('/notes/create', [NoteController::class,'create'])->name('notes.create');
-    Route::post('/notes/store', [NoteController::class,'store'])->name('notes.store');
-    Route::post('/notes/{note}/update', [NoteController::class,'update'])->name('notes.update');
-    Route::post('/notes/{note}/destroy', [NoteController::class,'destroy'])->name('notes.destroy');
+    Route::get('/publications/{publication}/edit', [PublicationController::class,'edit'])->name('publications.edit');
+    Route::get('/publications/create', [PublicationController::class,'create'])->name('publications.create');
+    Route::post('/publications/store', [PublicationController::class,'store'])->name('publications.store');
+    Route::post('/publications/{publication}/update', [PublicationController::class,'update'])->name('publications.update');
+    Route::post('/publications/{publication}/destroy', [PublicationController::class,'destroy'])->name('publications.destroy');
 });
 
 

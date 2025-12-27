@@ -1,16 +1,14 @@
 import { Head, Link, usePage } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
 import { useState } from "react";
-import Note from "../Layouts/Note";
+import Publication from "../Layouts/Publication";
 import Navigation from "../Layouts/Navigation";
 
 
-function Home({notes}) {
+function Home({publications}) {
 
     // hooks declaration
     const {flash } = usePage().props;
-
-    console.log(usePage().props)
 
     const [warningMessage, setWarningMessage] = useState(flash.warning);
     const [normalMessage, setNormalMessage] = useState(flash.normal);
@@ -38,17 +36,17 @@ function Home({notes}) {
 
             {/* content  */}
             <div className="home-content-container">
-                <h2 className="home-header">Note List</h2>
+                <h2 className="home-header">Publication List</h2>
 
                 <div className="home-list-container">
-                    {notes.data.map(note => (
-                        <Note note={note} key={note.id} />
+                    {publications.data.map(publication => (
+                        <Publication publication={publication} key={publication.id} />
                     ))}
                 </div>
             </div>
 
             {/* navigation  */}
-            <Navigation links={notes.links} current={notes.current_page} />
+            <Navigation links={publications.links} current={publications.current_page} />
 
         </>
     );

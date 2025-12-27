@@ -12,7 +12,7 @@ function Create () {
 
     function submit (e) {
         e.preventDefault();
-        post(route('notes.store'));
+        post(route('publications.store'));
     }
 
     const errorBorder = {
@@ -21,21 +21,21 @@ function Create () {
 
     return (
         <>
-            <Head title="Create Note" />
+            <Head title="Create Publication" />
 
             <div className="create-content-container">
-                <h2 className="create-header">Create Note</h2>
+                <h2 className="create-header">Create Publication</h2>
 
                 <form onSubmit={submit}>
                     <input className="create-form-title" type="text" name="title" value={data.title}
                         onChange={(e) => setData('title', e.target.value)} style={errors.title && errorBorder}
-                        placeholder="Enter note title"/>
+                        placeholder="Enter publication title"/>
                     <div className="create-title-error">{errors.title ?? ""}</div>
 
                     <textarea className="create-form-body" rows={10}
                         name="body" id="body" value={data.body}
                         onChange={(e) => setData('body', e.target.value)}
-                        style={errors.body && errorBorder} placeholder="Enter note body"></textarea>
+                        style={errors.body && errorBorder} placeholder="Enter publication body"></textarea>
                     <div className="create-body-error">{errors.body ?? ""}</div>
 
                     <button className="create-form-button" disabled={processing}>Publish</button>

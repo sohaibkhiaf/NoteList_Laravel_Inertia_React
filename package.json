@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@inertiajs/react": "^2.3.4",
+        "qs-esm": "^7.0.2",
         "react": "^19.2.3",
         "react-dom": "^19.2.3"
     }
