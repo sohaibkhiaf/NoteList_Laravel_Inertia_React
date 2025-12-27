@@ -7,6 +7,9 @@ import Navigation from "../Components/Navigation";
 
 function Home({publications}) {
 
+    // console.log("publications")
+    // console.log(publications)
+
     // hooks declaration
     const {flash } = usePage().props;
 
@@ -46,7 +49,7 @@ function Home({publications}) {
             </div>
 
             {/* navigation  */}
-            <Navigation links={publications.links} current={publications.current_page} />
+            <Navigation links={publications.meta.links} current={publications.meta.current_page} />
 
         </>
     );

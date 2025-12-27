@@ -9,7 +9,8 @@ function Header ({selected}) {
     const route = useRoute();
     const {post} = useForm();
 
-    console.log(auth)
+    // console.log("auth")
+    // console.log(auth)
 
     const logout = (e) => {
         e.preventDefault();

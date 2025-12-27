@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PublicationRequest;
+use App\Http\Resources\PublicationResource;
 use App\Models\Publication;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Inertia\Inertia;
 
 class PublicationController extends Controller
 {
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $publications = Publication::with('user')->latest()->paginate(6);
-        return Inertia::render("Home", ["publications"=> $publications]);
+        return Inertia::render("Home", [
+            "publications"=>  PublicationResource::collection($publications),
+        ]);
     }
 
     /**
@@ -28,13 +34,9 @@ class PublicationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PublicationRequest $request)
     {
-        $fields = $request->validate([
-            "title"=> "required",
-            "body" => "required",
-        ]);
-
+        $fields = $request->validated();
         $user = $request->user();
 
         Publication::create([...$fields, "user_id" => $user->id]);
@@ -49,8 +51,7 @@ class PublicationController extends Controller
     public function show(Publication $publication)
     {
         return Inertia::render("Show", [
-            "publication" => $publication,
-            "user" => $publication->user,
+            "publication" => new PublicationResource($publication),
         ]);
     }
 
@@ -59,34 +60,25 @@ class PublicationController extends Controller
      */
     public function edit(Publication $publication)
     {
-        if (auth()->user()->id === $publication->user->id) {
-            return Inertia::render("Edit", ["publication" => $publication]);
-        }else {
-            return redirect()->route('publications')
-                ->with( 'warning' , "Unauthorized Access");
-        }
+        $this->authorize("update", $publication);
+
+        return Inertia::render("Edit", [
+            "publication" => new PublicationResource($publication),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Publication $publication)
+    public function update(PublicationRequest $request, Publication $publication)
     {
-        $fields = $request->validate([
-            'title' => 'required',
-            'body' => 'required',
-        ]);
+        $this->authorize("update", $publication);
 
-        if ($request->user()->id === $publication->user->id) {
-            $publication->update($fields);
+        $fields = $request->validated();
+        $publication->update($fields);
 
-            return redirect()->route('publications')
-                ->with('normal' , "Publication was updated successfully");
-        }else {
-            return redirect()->route('publications')
-                ->with( 'warning' , "Unauthorized Access");
-        }
-
+        return redirect()->route('publications')
+            ->with('normal' , "Publication was updated successfully");
     }
 
     /**
@@ -94,13 +86,10 @@ class PublicationController extends Controller
      */
     public function destroy(Publication $publication)
     {
-        if (auth()->user()->id === $publication->user->id) {
-            $publication->delete();
-            return redirect()->route("publications")
-                ->with("normal","The Post was deleted");
-        }else {
-            return redirect()->route('publications')
-                ->with( 'warning' , "Unauthorized Access");
-        }
+        $this->authorize("delete", $publication);
+
+        $publication->delete();
+        return redirect()->route("publications")
+            ->with("normal","The Post was deleted");
     }
 }

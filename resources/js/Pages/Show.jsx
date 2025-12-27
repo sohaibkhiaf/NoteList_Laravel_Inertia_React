@@ -2,7 +2,7 @@ import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
 import {useRoute} from "../../../vendor/tightenco/ziggy";
 
-function Show({publication, user}) {
+function Show({publication}) {
 
     const {auth} = usePage().props;
     const route = useRoute();
@@ -23,14 +23,14 @@ function Show({publication, user}) {
 
             <div className="show-content-container">
 
-                <p>Publisher: {user.name}</p>
+                <p>Publisher: {publication.user.name}</p>
 
                 <h2 className="show-header">{publication.title} (#{publication.id})</h2>
                 <div className="show-publication-container">
                     <p className="show-publication-body">&nbsp;&nbsp;&nbsp;{publication.body}</p>
                     <i  className="show-publication-date">{new Date(publication.created_at).toLocaleString()}</i>
 
-                    { (auth.user && auth.user.id === publication.user_id) ?
+                    { (auth.user && auth.user.id === publication.user.id) ?
                     (<div className="show-button-container">
                         <form onSubmit={submit}>
                             <button className="show-delete-button">Delete</button>

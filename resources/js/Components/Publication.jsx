@@ -26,7 +26,7 @@ function Publication ({publication}){
 
             <div className={styles.publicationButtonContainer}>
 
-                { (auth.user && auth.user.id === publication.user_id) ?
+                { (auth.user && auth.user.id === publication.user.id) ?
                 (<>
                 <form onSubmit={submit}>
                     <button className={styles.publicationDeleteButton}>Delete</button>
