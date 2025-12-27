@@ -1,8 +1,8 @@
 import { Head, Link, usePage } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
 import { useState } from "react";
-import Publication from "../Layouts/Publication";
-import Navigation from "../Layouts/Navigation";
+import Publication from "../Components/Publication";
+import Navigation from "../Components/Navigation";
 
 
 function Home({publications}) {

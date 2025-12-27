@@ -1,0 +1,108 @@
+
+.headerContainer .headerUserContainer{
+    background-color: var(--light-blue);
+    height: 0;
+    display: flex;
+    justify-content:space-between;
+
+}
+
+.headerContainer .headerUserContainer .userName{
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bolder;
+    margin: 7px;
+    padding: 6px;
+}
+
+.headerContainer .headerUserContainer .logoutButton{
+    padding: 6px 10px;
+    background-color: #950606;
+    border-radius: 5px;
+    color: #ffffff;
+    border: 0;
+    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    margin: 7px;
+}
+.headerContainer .headerUserContainer .logoutButton:hover {
+    background-color: hsl(0, 92%, 25%);
+}
+
+.headerContainer .headerNavContainer {
+    background-color: var(--light-blue);
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
+}
+
+
+.headerContainer .headerNavContainer .navHome,
+.headerContainer .headerNavContainer .navCreate {
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 20px;
+}
+.headerContainer .headerNavContainer .navHome:hover,
+.headerContainer .headerNavContainer .navCreate:hover{
+    background-color: var(--dark-blue);
+    border-bottom: 2px solid #ffffff;
+}
+
+.headerContainer .headerNavContainer .navHome.active,
+.headerContainer .headerNavContainer .navCreate.active{
+    background-color: var(--dark-blue);
+    border-bottom: 2px solid #ffffff;
+}
+
+
+/* media queries */
+
+@media (max-width:991px){
+    .headerContainer .headerNavContainer .navHome,
+    .headerContainer .headerNavContainer .navCreate {
+        padding: 12px 20px;
+    }
+
+    .headerContainer .headerUserContainer .logoutButton{
+        margin: 10px;
+        padding: 6px 10px;
+    }
+    .headerContainer .headerUserContainer .userName{
+        margin: 10px;
+    }
+}
+
+@media(max-width: 768px){
+
+    .headerContainer .headerUserContainer .logoutButton{
+        margin: 10px;
+    }
+    .headerContainer .headerUserContainer .userName{
+        margin: 10px;
+    }
+}
+
+
+@media (max-width:450px){
+    .headerContainer .headerNavContainer .navHome,
+    .headerContainer .headerNavContainer .navCreate {
+        padding: 16px 20px;
+    }
+
+    .headerContainer .headerUserContainer .logoutButton{
+        margin: 12px;
+        padding: 6px 6px;
+    }
+    .headerContainer .headerUserContainer .userName{
+        margin: 12px;
+    }
+}
+
+
+

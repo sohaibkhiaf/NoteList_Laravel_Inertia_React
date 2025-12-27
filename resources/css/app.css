@@ -27,165 +27,6 @@ body{
     background-color: hsl(0, 0%, 98%);
 }
 
-/* header ********************************************************** */
-
-.header-container .header-nav-container {
-    background-color: var(--light-blue);
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-}
-
-.header-container .header-nav-container .nav-home,
-.header-container .header-nav-container .nav-create {
-    font-size: 1.1rem;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 8px 20px;
-}
-.header-container .header-nav-container .nav-home:hover,
-.header-container .header-nav-container .nav-create:hover{
-    background-color: var(--dark-blue);
-    border-bottom: 2px solid #ffffff;
-}
-
-.header-container .header-nav-container .nav-home.active,
-.header-container .header-nav-container .nav-create.active{
-    background-color: var(--dark-blue);
-    border-bottom: 2px solid #ffffff;
-}
-
-
-/* publication ***************************************************************** */
-
-.publication-container {
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 10px;
-    border: 1px solid hsl(0, 0%, 90%);
-    position: relative;
-}
-.publication-container h4.publication-title{
-    margin: 0;
-    font-size: 1.1rem;
-    margin-left: 10px;
-}
-.publication-container .publication-body {
-    margin: 10px 0 5px;
-    font-size: 1rem;
-}
-.publication-container i.publication-date{
-    margin-bottom: 5px;
-    display: block;
-    font-size: 1rem;
-}
-
-.publication-container .publication-button-container {
-    display: flex;
-    justify-content: flex-end;
-    position:absolute;
-    bottom: 10px;
-    right: 10px;
-}
-
-
-
-.publication-container .publication-button-container form .publication-delete-button{
-    padding: 6px 0;
-    background-color: #950606;
-    border-radius: 5px;
-    color: #ffffff;
-    border: 0;
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-    font-size: .9rem;
-    cursor: pointer;
-    text-decoration: none;
-    width: 108px;
-    text-align: center;
-    margin-left: 10px;
-}
-.publication-container .publication-button-container form .publication-delete-button:hover {
-    background-color: hsl(0, 92%, 25%);
-}
-
-.publication-container .publication-button-container .publication-edit-link{
-    padding: 6px 0;
-    background-color: var(--light-blue);
-    border-radius: 5px;
-    color: #ffffff;
-    border: 0;
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-    font-size: .9rem;
-    cursor: pointer;
-    text-decoration: none;
-    width: 108px;
-    text-align: center;
-    margin-left: 10px;
-}
-.publication-container .publication-button-container .publication-edit-link:hover {
-    background-color: var(--dark-blue);
-}
-
-.publication-container .publication-button-container .publication-link{
-    padding: 6px 0;
-    background-color: var(--light-blue);
-    border-radius: 5px;
-    color: #ffffff;
-    border: 0;
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-    font-size: .9rem;
-    cursor: pointer;
-    text-decoration: none;
-    width: 108px;
-    text-align: center;
-    margin-left: 10px;
-}
-.publication-container .publication-button-container .publication-link:hover {
-    background-color: var(--dark-blue);
-}
-
-/* navigation **************************************************** */
-
-.navigation-container{
-    max-width: 900px;
-    margin: 30px auto;
-    display: flex;
-    justify-content: center;
-}
-
-.navigation-container .navigation-link{
-    font-size: 1.2rem;
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    width: 25px;
-    height: 25px;
-    text-decoration: none;
-    color: hsl(0, 0%, 20%);
-}
-.navigation-container .navigation-link:hover {
-    background-color: var(--light-blue);
-    color: #ffffff;
-}
-.navigation-container .navigation-link.active {
-    background-color: var(--light-blue);
-    color: #ffffff;
-}
-.navigation-container .navigation-disabled{
-    font-size: 1.2rem;
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    width: 25px;
-    height: 25px;
-    text-decoration: none;
-    color: hsl(0, 0%, 20%);
-}
-
 
 /* home ************************************************************ */
 
@@ -449,8 +290,6 @@ body{
         font-size: 72%;
     }
 
-    /* containers */
-    .navigation-container,
     .home-content-container,
     .create-content-container,
     .edit-content-container,
@@ -459,87 +298,29 @@ body{
         margin: 0 15px;
     }
 
-    /* home components */
-    .publication-container .publication-link{
-        width: 90px;
-    }
-
-    .header-container .header-nav-container .nav-home,
-    .header-container .header-nav-container .nav-create {
-        padding: 12px 20px;
-    }
-
-    .navigation-container .navigation-link{
-        width: 20px;
-        height: 20px;
-    }
-
-
-    .navigation-container{
-        margin-bottom: 25px;
-    }
-
-    /* create components */
     .create-content-container form .create-form-button{
         width: 70px;
     }
 
-    /* edit component */
     .edit-content-container form .edit-form-button{
         width: 70px;
     }
 
-    /* show components */
     .show-content-container .show-publication-container .show-button-container .show-edit-link,
     .show-content-container .show-publication-container .show-button-container form .show-delete-button{
         width: 70px;
-    }
-
-    .publication-container .publication-button-container form .publication-delete-button,
-    .publication-container .publication-button-container .publication-edit-link,
-    .publication-container .publication-button-container .publication-link{
-        padding: 6px 0;
-        font-size: .9rem;
-        width: 92px;
-        margin-left: 10px;
     }
 
 }
 
 @media (max-width:768px){
 
-    /* containers */
-    .navigation-container,
     .home-content-container,
     .create-content-container,
     .edit-content-container,
     .show-content-container{
         max-width: 700px;
         margin: 0 15px;
-    }
-
-
-    /* home components */
-    .publication-container .publication-link{
-        width: 80px;
-    }
-
-    .navigation-container .navigation-link{
-        width: 20px;
-        height: 20px;
-    }
-
-    .navigation-container{
-        margin-bottom: 25px;
-    }
-
-    .publication-container .publication-button-container form .publication-delete-button,
-    .publication-container .publication-button-container .publication-edit-link,
-    .publication-container .publication-button-container .publication-link{
-        padding: 6px 0;
-        font-size: .9rem;
-        width: 80px;
-        margin-left: 10px;
     }
 
 }
@@ -551,8 +332,6 @@ body{
         font-size: 55%;
     }
 
-    /* containers */
-    .navigation-container,
     .home-content-container,
     .create-content-container,
     .edit-content-container,
@@ -561,49 +340,17 @@ body{
         margin: 0 10px;
     }
 
-    /* home components */
-    .navigation-container{
-        margin-bottom: 20px;
-    }
-
-    .publication-container .publication-link{
-        width: 65px;
-    }
-
-    .header-container .header-nav-container .nav-home,
-    .header-container .header-nav-container .nav-create {
-        padding: 16px 20px;
-    }
-
-    .navigation-container .navigation-link{
-        width: 15px;
-        height: 15px;
-    }
-
-    /* create component */
     .create-content-container form .create-form-button{
         width: 60px;
     }
 
-    /* edit component */
     .edit-content-container form .edit-form-button{
         width: 60px;
     }
 
-    /* show components */
     .show-content-container .show-publication-container .show-button-container .show-edit-link,
     .show-content-container .show-publication-container .show-button-container form .show-delete-button{
         width: 60px;
-    }
-
-
-    .publication-container .publication-button-container form .publication-delete-button,
-    .publication-container .publication-button-container .publication-edit-link,
-    .publication-container .publication-button-container .publication-link{
-        padding: 6px 0;
-        font-size: .9rem;
-        width: 68px;
-        margin-left: 10px;
     }
 
 }

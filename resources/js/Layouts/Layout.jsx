@@ -1,4 +1,4 @@
-import Header from "./Header.jsx";
+import Header from "../Components/Header.jsx";
 import { Head } from "@inertiajs/react";
 
 function Layout ({ header, children}){

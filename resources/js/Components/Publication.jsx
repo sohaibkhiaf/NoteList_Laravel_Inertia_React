@@ -1,5 +1,6 @@
 import { Link, useForm, usePage } from "@inertiajs/react";
 import {useRoute} from "../../../vendor/tightenco/ziggy/src/js";
+import styles from "../../css/Publication.module.css";
 
 function Publication ({publication}){
 
@@ -17,28 +18,28 @@ function Publication ({publication}){
     }
 
     return (
-        <div className="publication-container">
-            <p>{publication.user.name}</p>
-            <h4 className="publication-title">{publication.title}</h4>
-            <p className="publication-body">{truncateText(publication.body)}</p>
-            <i className="publication-date">{new Date(publication.created_at).toLocaleString()}</i>
+        <div className={styles.publicationContainer}>
+            <p className={styles.publicationPublisher}>Publisher: <span>{publication.user.name}</span></p>
+            <h4 className={styles.publicationTitle}>{publication.title}</h4>
+            <p className={styles.publicationBody}>{truncateText(publication.body)}</p>
+            <i className={styles.publicationDate}>{new Date(publication.created_at).toLocaleString()}</i>
 
-            <div className="publication-button-container">
+            <div className={styles.publicationButtonContainer}>
 
                 { (auth.user && auth.user.id === publication.user_id) ?
                 (<>
                 <form onSubmit={submit}>
-                    <button className="publication-delete-button">Delete</button>
+                    <button className={styles.publicationDeleteButton}>Delete</button>
                 </form>
 
-                <Link className="publication-edit-link"
+                <Link className={styles.publicationEditLink}
                     href={route('publications.edit', publication)}>
                         Edit
                 </Link>
                 </>)
                 : (<></>)
                 }
-                <Link className="publication-link"
+                <Link className={styles.publicationLink}
                     href={route('publications.show', publication)}>
                         Read more
                 </Link>
@@ -49,7 +50,8 @@ function Publication ({publication}){
     );
 }
 
-function truncateText(text, maxLength = 230) {
+/** ai generated*/
+function truncateText(text, maxLength = 340) {
     if (text.length <= maxLength) {
         return text; // no need to truncate
     }
