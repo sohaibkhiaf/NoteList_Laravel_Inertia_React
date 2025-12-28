@@ -1,6 +1,7 @@
 import Layout from "../Layouts/Layout";
 import { Head, useForm } from "@inertiajs/react";
 import {useRoute} from "../../../vendor/tightenco/ziggy";
+import styles from "../../css/Edit.module.css";
 
 function Edit ({publication}) {
 
@@ -23,22 +24,22 @@ function Edit ({publication}) {
         <>
             <Head title={`Edit Publication`}/>
 
-            <div className="edit-content-container">
-                <h2 className="edit-header">Edit Publication (#{publication.id})</h2>
+            <div className={styles.editContentContainer}>
+                <h2 className={styles.editHeader}>Edit Publication (#{publication.id})</h2>
 
                 <form onSubmit={submit}>
-                    <input className="edit-form-title" type="text" name="title" value={data.title}
+                    <input className={styles.editFormTitle} type="text" name="title" value={data.title}
                         onChange={(e) => setData('title', e.target.value)} style={errors.title && errorBorder}
                         placeholder="Enter publication title" />
-                    <div className="edit-title-error">{errors.title ?? ""}</div>
+                    <div className={styles.editTitleError}>{errors.title ?? ""}</div>
 
-                    <textarea className="edit-form-body" rows={10}
+                    <textarea className={styles.editFormBody} rows={10}
                         name="body" id="body" value={data.body}
                         onChange={(e) => setData('body', e.target.value)}
                         style={errors.body && errorBorder} placeholder="Enter publication body"></textarea>
-                    <div className="edit-body-error">{errors.body ?? ""}</div>
+                    <div className={styles.editBodyError}>{errors.body ?? ""}</div>
 
-                    <button className="edit-form-button" disabled={processing}>Update</button>
+                    <button className={styles.editFormButton} disabled={processing}>Update</button>
                 </form>
             </div>
         </>

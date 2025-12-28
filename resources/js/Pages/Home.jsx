@@ -3,12 +3,10 @@ import Layout from "../Layouts/Layout";
 import { useState } from "react";
 import Publication from "../Components/Publication";
 import Navigation from "../Components/Navigation";
+import styles from "../../css/Home.module.css";
 
 
 function Home({publications}) {
-
-    // console.log("publications")
-    // console.log(publications)
 
     // hooks declaration
     const {flash } = usePage().props;
@@ -34,14 +32,14 @@ function Home({publications}) {
             <Head title="Home" />
 
             {/* flash messages */}
-            {warningMessage && <div className="home-flash-error">{warningMessage}</div> }
-            {normalMessage && <div className="home-flash-success">{normalMessage}</div> }
+            {warningMessage && <div className={styles.homeFlashError}>{warningMessage}</div> }
+            {normalMessage && <div className={styles.homeFlashSuccess}>{normalMessage}</div> }
 
             {/* content  */}
-            <div className="home-content-container">
-                <h2 className="home-header">Publication List</h2>
+            <div className={styles.homeContentContainer}>
+                <h2 className={styles.homeHeader}>Publication List</h2>
 
-                <div className="home-list-container">
+                <div className={styles.homeListContainer}>
                     {publications.data.map(publication => (
                         <Publication publication={publication} key={publication.id} />
                     ))}

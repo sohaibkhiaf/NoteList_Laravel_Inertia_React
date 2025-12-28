@@ -1,6 +1,7 @@
 import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
 import {useRoute} from "../../../vendor/tightenco/ziggy";
+import styles from "../../css/Show.module.css";
 
 function Show({publication}) {
 
@@ -21,22 +22,22 @@ function Show({publication}) {
         <>
             <Head title="Show" />
 
-            <div className="show-content-container">
+            <div className={styles.showContentContainer}>
 
                 <p>Publisher: {publication.user.name}</p>
 
-                <h2 className="show-header">{publication.title} (#{publication.id})</h2>
-                <div className="show-publication-container">
-                    <p className="show-publication-body">&nbsp;&nbsp;&nbsp;{publication.body}</p>
-                    <i  className="show-publication-date">{new Date(publication.created_at).toLocaleString()}</i>
+                <h2 className={styles.showHeader}>{publication.title} (#{publication.id})</h2>
+                <div className={styles.showPublicationContainer}>
+                    <p className={styles.showPublicationBody}>&nbsp;&nbsp;&nbsp;{publication.body}</p>
+                    <i  className={styles.showPublicationDate}>{new Date(publication.created_at).toLocaleString()}</i>
 
                     { (auth.user && auth.user.id === publication.user.id) ?
-                    (<div className="show-button-container">
+                    (<div className={styles.showButtonContainer}>
                         <form onSubmit={submit}>
-                            <button className="show-delete-button">Delete</button>
+                            <button className={styles.showDeleteButton}>Delete</button>
                         </form>
 
-                        <Link className="show-edit-link"
+                        <Link className={styles.showEditLink}
                             href={route('publications.edit', publication)}>
                                 Edit
                         </Link>
