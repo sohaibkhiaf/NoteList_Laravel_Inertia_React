@@ -1,4 +1,5 @@
 import { Head, Link, useForm } from '@inertiajs/react';
+import styles from "../../../css/Register.module.css";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -16,47 +17,49 @@ export default function Register() {
         });
     };
 
-    return (
-        <div>
-            <Head title="Register" />
+    const errorBorder = {
+        borderColor: "#950606",
+    }
 
-            <form onSubmit={submit}>
-                <div>
-                    <label htmlFor="name">Name</label>
+    return (
+        <div className={styles.registerContainer}>
+            <Head title="Register" />
+            <h2 className={styles.registerHeader}>Register</h2>
+
+            <form className={styles.registerForm} onSubmit={submit}>
+                <div className={styles.registerNameContainer}>
                     <input type="name" name="name" value={data.name}
                         onChange={(e) => setData('name', e.target.value)}
-                        required/>
+                        placeholder="Name" style={errors.name && errorBorder}/>
                     {errors.name && <p>{errors.name}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="email">Email</label>
-
+                <div className={styles.registerEmailContainer}>
                     <input type="email" name="email" value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
-                        required/>
+                        placeholder="Email" style={errors.email && errorBorder}/>
                     {errors.email && <p>{errors.email}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="password">Password</label>
+                <div className={styles.registerPasswordContainer}>
                     <input type="password" name="password" value={data.password}
                         onChange={(e) => setData('password', e.target.value)}
-                        required/>
+                        placeholder="Password" style={errors.password && errorBorder} />
                     {errors.password && <p>{errors.password}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="password_confirmation">Confirm Password</label>
+                <div className={styles.registerConfirmPasswordContainer}>
                     <input type="password" name="password_confirmation" value={data.password_confirmation}
                         onChange={(e) => setData('password_confirmation', e.target.value)}
-                        required />
+                        placeholder="Confirm Password" style={errors.password_confirmation && errorBorder} />
                      {errors.password_confirmation && <p>{errors.password_confirmation}</p>}
                 </div>
 
-                <div>
-                    <Link href={route('login')}>Already registered?</Link>
-                    <button disabled={processing}>Register</button>
+                <button className={styles.registerButton} disabled={processing}>Register</button>
+
+                <div className={styles.registerLoginLinkContainer}>
+                    Already registered?
+                    <Link className={styles.registerLoginLink}  href={route('login')}>Log in</Link>
                 </div>
             </form>
         </div>

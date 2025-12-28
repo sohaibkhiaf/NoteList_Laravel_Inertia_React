@@ -1,0 +1,78 @@
+.loginContainer{
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.loginContainer .loginHeader{
+    font-size: 1.2rem;
+    margin: 30px 0 10px 30px;
+    padding: 10px;
+}
+
+.loginContainer .loginForm{
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.loginContainer .loginForm .loginEmailContainer,
+.loginContainer .loginForm .loginPasswordContainer{
+    margin-bottom: 10px;
+}
+.loginContainer .loginForm .loginEmailContainer input,
+.loginContainer .loginForm .loginPasswordContainer input{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding: 8px 10px;
+    border: 2px solid var(--light-blue);
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 98%);
+}
+.loginContainer .loginForm .loginEmailContainer p,
+.loginContainer .loginForm .loginPasswordContainer p{
+    color: #950606;
+    font-size: 0.9rem;
+    margin:0 0 20px 0;
+}
+
+.loginContainer .loginForm .loginRememberBoxContainer{
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.loginContainer .loginForm .loginButton{
+    padding: 8px 0;
+    background-color: var(--light-blue);
+    border-radius: 5px;
+    color: #ffffff;
+    border: 0;
+    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.loginContainer .loginForm .loginButton:hover{
+    background-color: var(--dark-blue);
+}
+
+
+.loginContainer .loginForm .loginRegisterLinkContainer{
+    font-size: 1rem;
+
+}
+
+.loginContainer .loginForm .loginRegisterLinkContainer .loginRegisterLink{
+    font-size: 1rem;
+    color: var(--light-blue);
+    margin-left: 10px;
+    text-decoration: none;
+}
+.loginContainer .loginForm .loginRegisterLinkContainer .loginRegisterLink:hover{
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
