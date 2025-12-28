@@ -26,10 +26,20 @@
     background-color: hsl(0, 0%, 98%);
 }
 
-.editContentContainer form .editTitleError {
+.editContentContainer form .editTitleErrorsContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.editContentContainer form .editTitleErrorsContainer .editTitleError {
+    margin: 0;
     color: #950606;
     font-size: 0.9rem;
-    margin-bottom: 20px;
+}
+.editContentContainer form .editTitleErrorsContainer .editTitleCounter{
+    margin: 0;
+    font-size: .9rem;
+    text-align: right;
 }
 
 .editContentContainer form .editFormBody {
@@ -44,14 +54,24 @@
     resize: none;
 }
 
-.editContentContainer form .editBodyError {
+.editContentContainer form .editBodyErrorsContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.editContentContainer form .editBodyErrorsContainer .editBodyCounter{
+    margin: 0;
+    font-size: .9rem;
+    text-align: right;
+}
+.editContentContainer form .editBodyErrorsContainer .editBodyError {
     color: #950606;
     font-size: 0.9rem;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 .editContentContainer form .editFormButton {
-    padding: 8px 0;
+    padding: 6px 10px;
     background-color: var(--light-blue);
     border-radius: 5px;
     color: #ffffff;
@@ -60,10 +80,9 @@
     font-size: 1rem;
     cursor: pointer;
     text-decoration: none;
-    width: 90px;
     text-align: center;
     position: absolute;
-    top: 60px;
+    top: 55px;
     right: 10px;
 }
 
@@ -80,9 +99,6 @@
         margin: 0 15px;
     }
 
-    .editContentContainer form .editFormButton {
-        width: 70px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -90,17 +106,14 @@
     .editContentContainer {
         max-width: 700px;
         margin: 0 15px;
-        }
     }
+}
 
-    @media (max-width: 450px) {
+@media (max-width: 450px) {
 
     .editContentContainer {
         max-width: 400px;
         margin: 0 10px;
     }
 
-    .editContentContainer form .editFormButton {
-        width: 60px;
-    }
 }

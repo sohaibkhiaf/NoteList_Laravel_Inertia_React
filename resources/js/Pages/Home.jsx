@@ -4,9 +4,15 @@ import { useState } from "react";
 import Publication from "../Components/Publication";
 import Navigation from "../Components/Navigation";
 import styles from "../../css/Home.module.css";
+import { useMessage } from "@/Contexts/MessageProvider";
 
 
 function Home({publications}) {
+
+    const {normal, clearNormal} = useMessage();
+
+    console.log("home")
+    console.log(normal)
 
     // hooks declaration
     const {flash } = usePage().props;
@@ -26,6 +32,14 @@ function Home({publications}) {
         }, 3000);
     }
 
+
+    if (normal) {
+        setInterval(() => {
+            clearNormal();
+        }, 3000);
+    }
+
+
     return (
         <>
             {/* page title */}
@@ -34,6 +48,7 @@ function Home({publications}) {
             {/* flash messages */}
             {warningMessage && <div className={styles.homeFlashError}>{warningMessage}</div> }
             {normalMessage && <div className={styles.homeFlashSuccess}>{normalMessage}</div> }
+            {normal && <div className={styles.homeFlashSuccess}>{normal}</div> }
 
             {/* content  */}
             <div className={styles.homeContentContainer}>

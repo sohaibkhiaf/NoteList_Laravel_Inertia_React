@@ -45,27 +45,26 @@
         max-width: 900px;
         margin: 0 15px;
     }
+
+    .navigationContainer{
+        margin-bottom: 25px;
+    }
     .navigationContainer .navigationLink{
         width: 20px;
         height: 20px;
-    }
-    .navigationContainer{
-        margin-bottom: 25px;
     }
 }
 
 @media(max-width: 768px){
     .navigationContainer{
         max-width: 700px;
-        margin: 0 15px;
+        margin: 0 15px 25px;
     }
     .navigationContainer .navigationLink{
         width: 20px;
         height: 20px;
     }
-    .navigationContainer{
-        margin-bottom: 25px;
-    }
+
 
 }
 
@@ -74,11 +73,9 @@
 
     .navigationContainer{
         max-width: 400px;
-        margin: 0 10px;
+        margin: 0 10px 20px;
     }
-    .navigationContainer{
-        margin-bottom: 20px;
-    }
+
     .navigationContainer .navigationLink{
         width: 15px;
         height: 15px;

@@ -24,11 +24,11 @@ function Show({publication}) {
 
             <div className={styles.showContentContainer}>
 
-                <p>Publisher: {publication.user.name}</p>
+                <h2 className={styles.showPublisherHeader}>Publisher: <span>{publication.user.name}</span></h2>
 
-                <h2 className={styles.showHeader}>{publication.title} (#{publication.id})</h2>
                 <div className={styles.showPublicationContainer}>
-                    <p className={styles.showPublicationBody}>&nbsp;&nbsp;&nbsp;{publication.body}</p>
+                    <p className={styles.showTitle}>{publication.title}</p>
+                    <p className={styles.showPublicationBody}>{publication.body}</p>
                     <i  className={styles.showPublicationDate}>{new Date(publication.created_at).toLocaleString()}</i>
 
                     { (auth.user && auth.user.id === publication.user.id) ?

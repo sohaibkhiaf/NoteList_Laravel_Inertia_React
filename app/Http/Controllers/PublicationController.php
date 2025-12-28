@@ -88,6 +88,6 @@ class PublicationController extends Controller
 
         $publication->delete();
         return redirect()->route("publications")
-            ->with("normal","The Post was deleted");
+            ->with("normal","Publication was deleted successfully");
     }
 }

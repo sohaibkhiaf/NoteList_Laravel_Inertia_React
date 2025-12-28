@@ -22,8 +22,8 @@ class PublicationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title"=> "required|string|max:140",
-            "body" => "required|string|max:1240",
+            "title"=> "required|string|max:120",
+            "body" => "required|string|max:500",
         ];
     }
 }
