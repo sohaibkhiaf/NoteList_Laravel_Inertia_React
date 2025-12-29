@@ -1,29 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Header from "../Components/Header.jsx";
-import { Head, usePage } from "@inertiajs/react";
+import { Head, router, usePage } from "@inertiajs/react";
 
 function Layout ({ header, children}){
 
+    // hook initialization
     const {flash } = usePage().props;
 
-    const [warningMessage, setWarningMessage] = useState(flash.warning);
-    const [normalMessage, setNormalMessage] = useState(flash.normal);
-
+    // handle flash message change
     useEffect(() => {
-
-        setNormalMessage(n => flash.normal);
-        setWarningMessage(w => flash.warning);
 
         if (flash.warning) {
             setTimeout(() => {
-                flash.warning = null;
-                setWarningMessage(w => null);
+                router.reload({
+                    only: ['flash'],
+                    preserveScroll: true,
+                });
             }, 3000);
         }
+
         if (flash.normal) {
             setTimeout(() => {
-                flash.normal = null;
-                setNormalMessage(n => null);
+
+                router.reload({
+                    only: ['flash'],
+                    preserveScroll: true,
+                });
             }, 3000);
         }
 
@@ -31,14 +33,18 @@ function Layout ({ header, children}){
 
     return (
         <>
+            {/* title  */}
             <Head>
                 <link rel="icon" type="image/png" href="publication-icon.png" />
             </Head>
+
+            {/* header component  */}
             <Header selected={header ?? "undefined"}/>
 
             <main>
-                {warningMessage && <div className="flash-error">{warningMessage}</div> }
-                {normalMessage && <div className="flash-success">{normalMessage}</div> }
+                {/* display flash messages  */}
+                {flash.warning && <div className="flash-error">{flash.warning}</div> }
+                {flash.normal && <div className="flash-success">{flash.normal}</div> }
                 {children}
             </main>
         </>

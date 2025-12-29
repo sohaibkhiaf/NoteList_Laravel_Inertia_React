@@ -4,17 +4,17 @@ import styles from "../../css/Publication.module.css";
 
 function Publication ({publication}){
 
+    // hook initialization
     const {auth} = usePage().props;
     const route = useRoute();
     const {post} = useForm();
 
+    // submit publication function
     function submit(e) {
         e.preventDefault();
-
         if (window.confirm("Are you sure you want to delete this publication?")) {
             post(route('publications.destroy', publication));
         }
-
     }
 
     return (

@@ -3,9 +3,6 @@ import styles from "../../css/Navigation.module.css";
 
 function Navigation ({links, current}) {
 
-    // console.log("current")
-    // console.log(current)
-
     return (
         <div className={styles.navigationContainer}>
             {

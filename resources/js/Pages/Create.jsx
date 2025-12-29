@@ -6,31 +6,37 @@ import { useRef } from "react";
 
 function Create () {
 
+    // hook initialization
     const bodyRef = useRef();
     const titleRef = useRef();
-
     const route = useRoute();
     const {data, setData, post , errors, processing} = useForm({
         title: "",
         body: "",
     });
 
+    // submit publication function
     function submit (e) {
         e.preventDefault();
         post(route('publications.store'));
     }
 
+    // error styles
     const errorBorder = {
         borderColor: "#950606",
     }
 
     return (
         <>
+            {/* title  */}
             <Head title="Create Publication" />
 
             <div className={styles.createContentContainer}>
+
+                {/* header  */}
                 <h2 className={styles.createHeader}>Create Publication</h2>
 
+                {/* form  */}
                 <form onSubmit={submit}>
                     <input className={styles.createFormTitle} type="text" name="title" value={data.title}
                         onChange={(e) => setData('title', e.target.value)} style={errors.title && errorBorder}
@@ -59,12 +65,10 @@ function Create () {
                         </p>) }
                     </div>
 
+                    {/* submit button  */}
                     <button className={styles.createFormButton} disabled={processing}>Publish</button>
                 </form>
             </div>
-
-            {console.log(titleRef.current)}
-
 
         </>
     );

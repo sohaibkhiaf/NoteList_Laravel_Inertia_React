@@ -4,14 +4,12 @@ import styles from "../../css/Header.module.css"
 
 function Header ({selected}) {
 
+    // hook initialization
     const {auth} = usePage().props;
-
     const route = useRoute();
     const {post} = useForm();
 
-    // console.log("auth")
-    // console.log(auth)
-
+    // logout function
     const logout = (e) => {
         e.preventDefault();
         if (window.confirm("Are you sure you want to log out?")){
@@ -24,6 +22,7 @@ function Header ({selected}) {
         <>
         <header className={styles.headerContainer}>
 
+            {/* user name & log out  */}
             {auth.user && <div className={styles.headerUserContainer}>
                 <div className={styles.userName}>{auth.user.name}</div>
                 <form onSubmit={logout}>
@@ -31,6 +30,7 @@ function Header ({selected}) {
                 </form>
             </div>}
 
+            {/* navigation  */}
             <nav className={styles.headerNavContainer}>
                 <Link className={ selected === "home" ? styles.navHome +" "+styles.active : styles.navHome }
                     href={route('publications')}>

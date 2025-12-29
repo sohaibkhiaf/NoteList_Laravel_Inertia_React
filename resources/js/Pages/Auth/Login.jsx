@@ -3,29 +3,35 @@ import styles from "../../../css/Login.module.css";
 
 export default function Login() {
 
+    // hook init
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
         remember: false,
     });
 
+    // submit function
     const submit = (e) => {
         e.preventDefault();
-
         post(route('login'), {
             onFinish: () => reset('password'),
         });
     };
 
+    // error styles
     const errorBorder = {
         borderColor: "#950606",
     }
 
     return (
         <div className={styles.loginContainer}>
+            {/* title  */}
             <Head title="Log in" />
+
+            {/* header  */}
             <h2 className={styles.loginHeader}>Login</h2>
 
+            {/* login form  */}
             <form className={styles.loginForm} onSubmit={submit}>
                 <div className={styles.loginEmailContainer}>
                     <input type="email" name="email" value={data.email} placeholder="Email"

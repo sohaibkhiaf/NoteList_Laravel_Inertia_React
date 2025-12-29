@@ -1,4 +1,4 @@
-import { Head, Link, usePage } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
 import Publication from "../Components/Publication";
 import Navigation from "../Components/Navigation";
@@ -9,7 +9,7 @@ function Home({publications}) {
 
     return (
         <>
-            {/* page title */}
+            {/* title */}
             <Head title="Home" />
 
             {/* content  */}

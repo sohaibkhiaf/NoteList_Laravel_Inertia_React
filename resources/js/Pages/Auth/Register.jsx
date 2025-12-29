@@ -2,6 +2,7 @@ import { Head, Link, useForm } from '@inertiajs/react';
 import styles from "../../../css/Register.module.css";
 
 export default function Register() {
+    // hook init
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
@@ -9,23 +10,28 @@ export default function Register() {
         password_confirmation: '',
     });
 
+    // submit function
     const submit = (e) => {
         e.preventDefault();
-
         post(route('register'), {
             onFinish: () => reset('password', 'password_confirmation'),
         });
     };
 
+    // error styles
     const errorBorder = {
         borderColor: "#950606",
     }
 
     return (
         <div className={styles.registerContainer}>
+            {/* title  */}
             <Head title="Register" />
+
+            {/* header  */}
             <h2 className={styles.registerHeader}>Register</h2>
 
+            {/* register form  */}
             <form className={styles.registerForm} onSubmit={submit}>
                 <div className={styles.registerNameContainer}>
                     <input type="name" name="name" value={data.name}

@@ -6,31 +6,37 @@ import { useRef } from "react";
 
 function Edit ({publication}) {
 
+    // hook initialization
     const bodyRef = useRef();
     const titleRef = useRef();
-
     const route = useRoute();
     const {data, setData, post , errors, processing} = useForm({
         title: publication.title,
         body: publication.body,
     });
 
+    // form submit
     function submit (e) {
         e.preventDefault();
         post(route('publications.update', publication));
     }
 
+    // error styles
     const errorBorder = {
         borderColor: "#950606",
     }
 
     return (
         <>
+            {/* title  */}
             <Head title={`Edit Publication`}/>
 
             <div className={styles.editContentContainer}>
+
+                {/* header  */}
                 <h2 className={styles.editHeader}>Edit Publication</h2>
 
+                {/* edit form  */}
                 <form onSubmit={submit}>
                     <input className={styles.editFormTitle} type="text" name="title" value={data.title}
                         onChange={(e) => setData('title', e.target.value)} style={errors.title && errorBorder}
@@ -59,6 +65,7 @@ function Edit ({publication}) {
                         </p>) }
                     </div>
 
+                    {/* submit button  */}
                     <button className={styles.editFormButton} disabled={processing}>Update</button>
                 </form>
             </div>
