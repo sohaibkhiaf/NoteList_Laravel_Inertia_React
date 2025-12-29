@@ -38,7 +38,7 @@ function Edit ({publication}) {
                         <div className={styles.editTitleErrorsContainer}>
                             <div className={styles.editTitleError}>{errors.title ?? ""}</div>
                             {typeof titleRef.current === "undefined" ?
-                            (<p className={styles.editTitleCounter}>0/120</p>) :
+                            (<p className={styles.editTitleCounter}>{data.title.length}/120</p>) :
                             (<p className={styles.editTitleCounter}
                                 style={titleRef.current.value.length > 120 ? {color: "#950606"} : {}}>
                                 {titleRef.current.value.length}/120
@@ -52,7 +52,7 @@ function Edit ({publication}) {
                     <div className={styles.editBodyErrorsContainer}>
                         <div className={styles.editBodyError}>{errors.body ?? ""}</div>
                         {typeof bodyRef.current === "undefined" ?
-                        (<p className={styles.editBodyCounter}>0/500</p>) :
+                        (<p className={styles.editBodyCounter}>{data.body.length}/500</p>) :
                         (<p className={styles.editBodyCounter}
                             style={bodyRef.current.value.length > 500 ? {color: "#950606"} : {}}>
                             {bodyRef.current.value.length}/500

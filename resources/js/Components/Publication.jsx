@@ -1,11 +1,8 @@
 import { Link, useForm, usePage } from "@inertiajs/react";
 import {useRoute} from "../../../vendor/tightenco/ziggy/src/js";
 import styles from "../../css/Publication.module.css";
-import { useMessage } from "@/Contexts/MessageProvider";
 
 function Publication ({publication}){
-
-    const {showNormal} = useMessage();
 
     const {auth} = usePage().props;
     const route = useRoute();
@@ -16,7 +13,6 @@ function Publication ({publication}){
 
         if (window.confirm("Are you sure you want to delete this publication?")) {
             post(route('publications.destroy', publication));
-            showNormal("Publication was deleted successfully");
         }
 
     }

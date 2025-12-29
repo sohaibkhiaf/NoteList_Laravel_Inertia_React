@@ -1,54 +1,16 @@
 import { Head, Link, usePage } from "@inertiajs/react";
 import Layout from "../Layouts/Layout";
-import { useState } from "react";
 import Publication from "../Components/Publication";
 import Navigation from "../Components/Navigation";
 import styles from "../../css/Home.module.css";
-import { useMessage } from "@/Contexts/MessageProvider";
 
 
 function Home({publications}) {
-
-    const {normal, clearNormal} = useMessage();
-
-    console.log("home")
-    console.log(normal)
-
-    // hooks declaration
-    const {flash } = usePage().props;
-
-    const [warningMessage, setWarningMessage] = useState(flash.warning);
-    const [normalMessage, setNormalMessage] = useState(flash.normal);
-
-    // flash message intervals
-    if (warningMessage) {
-        setInterval(() => {
-            setWarningMessage(null);
-        }, 3000);
-    }
-    if (normalMessage) {
-        setInterval(() => {
-            setNormalMessage(null);
-        }, 3000);
-    }
-
-
-    if (normal) {
-        setInterval(() => {
-            clearNormal();
-        }, 3000);
-    }
-
 
     return (
         <>
             {/* page title */}
             <Head title="Home" />
-
-            {/* flash messages */}
-            {warningMessage && <div className={styles.homeFlashError}>{warningMessage}</div> }
-            {normalMessage && <div className={styles.homeFlashSuccess}>{normalMessage}</div> }
-            {normal && <div className={styles.homeFlashSuccess}>{normal}</div> }
 
             {/* content  */}
             <div className={styles.homeContentContainer}>

@@ -1,29 +1,4 @@
 
-.homeFlashSuccess {
-    background-color: var(--light-blue);
-    color: #ffffff;
-    font-size: 1rem;
-    border-radius: 5px;
-    padding: 10px;
-    display: inline-block;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-}
-
-.homeFlashError {
-    background-color: #950606;
-    color: #ffffff;
-    font-size: 1rem;
-    border-radius: 5px;
-    padding: 10px;
-    display: inline-block;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    box-shadow: 2px 2px 3px hsla(0, 0%, 0%, 0.2);
-}
 
 .homeContentContainer {
     max-width: 1050px;

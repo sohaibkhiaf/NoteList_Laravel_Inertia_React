@@ -28,6 +28,6 @@ class DatabaseSeeder extends Seeder
             "password"=> bcrypt("password"),
         ]);
 
-        Publication::factory(30)->create();
+        Publication::factory(count: 100)->create();
     }
 }

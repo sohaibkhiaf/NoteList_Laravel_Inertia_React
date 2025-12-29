@@ -15,7 +15,7 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        $publications = Publication::with('user')->latest()->paginate(6);
+        $publications = Publication::with('user')->latest()->paginate(6)->onEachSide(1024);
         return Inertia::render("Home", [
             "publications"=>  PublicationResource::collection($publications),
         ]);
