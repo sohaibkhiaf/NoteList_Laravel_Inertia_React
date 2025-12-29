@@ -1,4 +1,4 @@
-import { Head, Link, useForm, usePage } from "@inertiajs/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 import {useRoute} from "../../../vendor/tightenco/ziggy";
 import styles from "../../css/Header.module.css"
 
